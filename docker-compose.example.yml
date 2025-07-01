@@ -2,18 +2,18 @@ name: kyra-example
 
 services:
    kyra:
-      image: xleddyl/kyra:latest
+      image: xleddyl/kyra:VERSION
       ports:
          - '3000:3000'
          - '4000:4000'
       environment:
          DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres
-         DATABASE_SCHEMA_MIGRATION: api,auth,private,public
          DATABASE_SCHEMA_EXPOSE: api,auth,private,public
       volumes:
          - ./schema:/app/kyra/schema
          - ./migrations:/app/kyra/migrations
          - ./seeds:/app/kyra/seeds
+         - ./test/types:/app/kyra/types
       depends_on:
          postgres:
             condition: service_healthy

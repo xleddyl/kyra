@@ -7,13 +7,11 @@
       "default": "./index.ts"
    },
    "scripts": {
-      "start": "tsx ./index.ts",
-      "studio": "npx drizzle-kit studio"
+      "start": "tsx ./index.ts"
    },
    "dependencies": {
       "arktype": "^2.1.20",
       "fastify": "^5.4.0",
-      "drizzle-kit": "^0.31.2",
       "postgraphile": "^4.14.1",
       "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
       "graphile-build-pg": "^4.14.1",
@@ -21,9 +19,6 @@
       "dotenv": "^16.0.0"
    },
    "devDependencies": {
-      "@graphql-codegen/cli": "^5.0.7",
-      "@graphql-codegen/typescript": "^4.1.6",
-      "@graphql-codegen/typescript-operations": "^4.6.1",
       "tsx": "^4.20.3"
    }
 }

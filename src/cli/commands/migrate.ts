@@ -12,6 +12,7 @@ const execAsync = promisify(exec)
 interface MigrateOptions {
    name?: string
    dryRun?: boolean
+   schema?: boolean
 }
 
 export async function migrate(options: MigrateOptions = {}) {
@@ -45,7 +46,7 @@ export async function migrate(options: MigrateOptions = {}) {
 
          try {
             const result = await execAsync(
-               `migra "${currentDbUrl}" "${shadowDbUrl}" --unsafe --schema ${process.env.DATABASE_SCHEMA || 'public'}`,
+               `migra "${currentDbUrl}" "${shadowDbUrl}" --unsafe --schema ${options.schema || 'public'}`,
                { timeout: 30000 } // 30 second timeout
             )
             migraDiff = result.stdout
