@@ -1,0 +1,24 @@
+{
+  "name": "@kyra/cli",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "kyra": "./index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx index.ts"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "pg": "^8.11.0",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/pg": "^8.11.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}

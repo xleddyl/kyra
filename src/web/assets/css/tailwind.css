@@ -1,0 +1,137 @@
+@theme {
+   --color-black: #000000;
+   --color-black-faded: #00000080;
+   --color-white: #ffffff;
+   --color-primary: #ffbd00;
+   --color-secondary: #ebebeb;
+   --color-light-blue: #cbdced;
+   --color-grey: #758692;
+   --color-light-grey: #e6ecf0;
+   --color-gold: #9f8d5e;
+   --color-red: #bf211e;
+   --color-yellow: #ffbd00;
+   --color-green: #bde68f;
+
+   --font-title: SpaceMono Regular, sans-serif;
+   --font-sans: SpaceMono Regular, sans-serif;
+
+   --radius-small: 10px;
+   --radius-base: 16px;
+   --radius-medium: 20px;
+   --radius-large: 30px;
+
+   --height-input-large: 50px;
+   --height-input-medium: 40px;
+}
+
+@utility body-base {
+   @apply font-sans font-[500];
+}
+
+@utility title-base {
+   @apply font-title font-[700];
+}
+
+@utility h-xxl {
+   @apply title-base text-[1.75rem];
+}
+
+@utility h-xl {
+   @apply title-base text-[1.375rem];
+}
+
+@utility h-l {
+   @apply title-base text-[1.125rem];
+}
+
+@utility h-m {
+   @apply title-base text-[1rem];
+}
+
+@utility h-s {
+   @apply title-base text-[0.813rem];
+}
+
+@utility h-xs {
+   @apply title-base text-[0.688rem];
+}
+
+@utility p-l {
+   @apply body-base text-[1rem];
+}
+
+@utility p-m {
+   @apply body-base text-[0.875rem];
+}
+
+@utility p-s {
+   @apply body-base text-[0.75rem];
+}
+
+@utility p-xs {
+   @apply body-base text-[0.625rem];
+}
+
+@layer base {
+   html {
+      @apply scroll-smooth font-sans font-normal;
+   }
+
+   img {
+      @apply object-cover;
+   }
+
+   p,
+   label {
+      @apply p-m;
+   }
+
+   h1 {
+      @apply h-xxl;
+   }
+
+   h2 {
+      @apply h-xl;
+   }
+
+   h3 {
+      @apply h-l;
+   }
+
+   h4 {
+      @apply h-m;
+   }
+
+   h5 {
+      @apply h-s;
+   }
+
+   h6 {
+      @apply h-xs;
+   }
+}
+
+.__clickable {
+   @apply cursor-pointer select-none transition-all duration-200;
+
+   &:active {
+      @apply transition-none;
+      scale: 0.99;
+   }
+}
+
+.__hoverable {
+   @apply hover:bg-light-grey transition-all;
+}
+
+.__shadow {
+   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.__shadow-bottom {
+   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.__container {
+   @apply mx-auto w-full max-w-screen-xl px-4 md:px-2;
+}

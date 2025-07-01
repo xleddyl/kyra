@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+@import './tailwind.css';
+
+*,
+*::after,
+*::before {
+   /* outline: 2px solid red; */
+}
+
+:root {
+   --default-footer-padding: 300px;
+   --dashboard-page-padding: 1.25rem;
+}
+
+::selection {
+   @apply text-primary bg-secondary;
+}
+
+html {
+   @apply text-primary;
+}

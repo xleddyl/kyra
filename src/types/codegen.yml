@@ -1,0 +1,16 @@
+overwrite: true
+schema: './types/generated/database-schema.graphql'
+generates:
+   types/generated/types.ts:
+      # documents: './src/graphql/**/*.graphql'
+      plugins:
+         - typescript
+         - typescript-operations
+      config:
+         withHOC: false
+         withComponent: false
+         withMutationFn: false
+config:
+   scalars:
+      DateTime: 'string'
+      JSON: '{ [key: string]: any }'

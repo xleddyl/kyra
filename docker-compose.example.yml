@@ -1,0 +1,46 @@
+name: kyra-example
+
+services:
+   kyra:
+      image: xleddyl/kyra:latest
+      ports:
+         - '3000:3000'
+         - '4000:4000'
+      environment:
+         DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres
+         DATABASE_SCHEMA_MIGRATION: api,auth,private,public
+         DATABASE_SCHEMA_EXPOSE: api,auth,private,public
+      volumes:
+         - ./schema:/app/kyra/schema
+         - ./migrations:/app/kyra/migrations
+         - ./seeds:/app/kyra/seeds
+      depends_on:
+         postgres:
+            condition: service_healthy
+      networks:
+         - kyra-network
+
+   postgres:
+      image: postgres:17.4
+      ports:
+         - 5432:5432
+      environment:
+         POSTGRES_PASSWORD: postgres
+         POSTGRES_USER: postgres
+         POSTGRES_DB: postgres
+      volumes:
+         - postgres_data:/var/lib/postgresql/data
+      healthcheck:
+         test: ['CMD-SHELL', 'pg_isready -U postgres']
+         interval: 2s
+         timeout: 5s
+         retries: 10
+      networks:
+         - kyra-network
+
+volumes:
+   postgres_data:
+
+networks:
+   kyra-network:
+      driver: bridge

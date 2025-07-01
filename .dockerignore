@@ -1,0 +1,17 @@
+node_modules
+.git
+.gitignore
+README.md
+.env
+.nuxt
+.output
+dist
+src/web/node_modules
+src/server/node_modules
+src/cli/node_modules
+**/.yarn/cache
+**/.yarn/install-state.gz
+
+# Keep src/cli/lib/migra for Docker build
+
+!src/cli/lib/migra
